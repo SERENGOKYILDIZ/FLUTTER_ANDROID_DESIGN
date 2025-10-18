@@ -37,12 +37,12 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body:
-        Column( /////-> Satır satır dizilir
+        Stack( /////-> Üst üste dizilir
           children: [
-            Text("Hello World"),
-            Container(width: 80, height: 80, color: Colors.blue),
             Container(width: 100, height: 100, color: Colors.red),
+            Container(width: 80, height: 80, color: Colors.blue),
             Container(width: 50, height: 50, color: Colors.green),
+            Text("Hello World"),
           ],
         )
     );
