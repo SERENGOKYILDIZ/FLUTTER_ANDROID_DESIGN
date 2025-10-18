@@ -37,7 +37,14 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body:
-        Text("Hello"),
+        Row( /////-> Sütun sütun dizilir
+          children: [
+            Text("Hello World'"),
+            Container(width: 80, height: 80, color: Colors.red),
+            Container(width: 50, height: 50, color: Colors.blue),
+            Container(width: 100, height: 100, color: Colors.green),
+          ],
+        )
     );
   }
 }
