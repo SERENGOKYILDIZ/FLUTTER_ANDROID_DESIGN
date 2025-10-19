@@ -31,59 +31,38 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+
+    /// Ekran oranını bulmak için ekledik
+    var ekranBilgisi = MediaQuery.of(context);
+    final double ekranYuksekligi = ekranBilgisi.size.height;
+    final double ekranGenisligi = ekranBilgisi.size.width;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
       /**
-       * LayoutBuilder: Ekranlara özgü tasarım yapmamıza olanak sağlar
+       * ALT + ENTER: belirli bir widget'in üzerine bu kombinasyonu yaparsak
+       * pratik bir şekilde özellikler ekleyebiliriz.
        * */
       body:
-        LayoutBuilder(
-            builder: (BuildContext context, BoxConstraints constraints){
-              if(constraints.maxWidth < 600) /// Ekran genişliği 600'den küçük ise
-                {
-                  ///Telefon Tasarımı
-                  return TelefonTasarimi();
-                }
-              else
-                {
-                  ///Tablet Tasarımı
-                  return TabletTasarimi();
-                }
-            }
-        ),
+        Center(
+          child: Column(
+            children: [
+              Padding(
+                padding: EdgeInsets.only(top:ekranYuksekligi/100),
+                child: SizedBox(
+                    width: ekranGenisligi/2,
+                    height: ekranYuksekligi/5,
+                    child: Image.asset("resimler/aslan.jpg"),
+                ),
+              ),
+              Container(width: ekranGenisligi, height: ekranYuksekligi/4, color: Colors.blue),
+              Text("Hello World", style: TextStyle(fontSize: ekranGenisligi/10),)
+            ],
+          ),
+        )
       );
-  }
-}
-
-class TabletTasarimi extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset("resimler/aslan.jpg", width: 300),
-          Text("Tabletteki aslan")
-        ],
-      ),
-    );
-  }
-}
-
-class TelefonTasarimi extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset("resimler/aslan.jpg", width: 200),
-          Text("Telefondaki aslan")
-        ],
-      ),
-    );
   }
 }
