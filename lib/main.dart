@@ -39,14 +39,13 @@ class _MyHomePageState extends State<MyHomePage> {
       body:
           /*
           NOT: Row'da kullanlan bu ve benzeri kodlar column'da da çalışır.
-          NOT: crossAxisAlignment ise row'da dikeyde, column'da yatayda hizalar.
-          NOT: Yani mainAxisAlignment'ın tersine sıralar.
+
+          MainAxisSize.max = match parent
+          MainAxisSize.min = wrap content
       */
         Row(
-          // crossAxisAlignment: CrossAxisAlignment.center,       //->Merkezi sıralar (Varsayılan)
-          // crossAxisAlignment: CrossAxisAlignment.end,          //->Sondan sıralar
-          // crossAxisAlignment: CrossAxisAlignment.start,        //->Baştan sıralar
-          crossAxisAlignment: CrossAxisAlignment.stretch,        //->Komple kaplayarak sıralar.
+          // mainAxisSize: MainAxisSize.min,              //-> Gerekli kadar alan kaplar
+          mainAxisSize: MainAxisSize.max,              //-> Alabildiği satırı/sütunu alanı kaplar (Varsayılan)
           children: [
             Container(width: 100, height: 100, color: Colors.red),
             Container(width: 80, height: 80, color: Colors.blue),
