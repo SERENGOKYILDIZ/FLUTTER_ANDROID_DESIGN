@@ -36,19 +36,27 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
+      /**
+       * NOT: Align ile 9 seçenekli, kutupsal sıralama yapılabilir.
+       * NOT: Eğer row wrap content ise o zaman oda sağ-sol atanabilir. Değilse
+       * max olduğu için sağ-sol atanamaz.
+       * */
       body:
-        Center( ///-> Bu ise sütun boyunca ortalar
+        Align(
+          // alignment: Alignment.centerLeft,
+          alignment: Alignment.center,
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.center, ///->Bu satır boyunca ortalar
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
                 width: 200,
-                height: 200,
+                height: 200, 
                 color: Colors.red,
-                child: Center( ///-> Container'a child atanır, Center eklenir ve oraya istediğimiz bir wigdet'i ortalayarak ekleyebiliriz.
+                child: Align(
+                  alignment: Alignment.bottomLeft,
                   child: Text("Hello World"),
-                ),
-              ),
+                ),)
             ],
           ),
         )
