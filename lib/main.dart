@@ -37,25 +37,29 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       /**
-       * Spacer: Geri kalan alanı boşluk ile doldurur. Yuzdelik olarak bolunebilir
+       * Padding: Widget etrafına boşluk oluşturmak için kullanılır
+       *
+       * NOT: all ile 4 tarafa aynı, only ile tek tek atanabilir.
        * */
       body:
-        // Row(
-        //   children: [
-        //     Container(width: 100, height: 100, color: Colors.red),
-        //     Spacer(),
-        //     Container(width: 50, height: 50, color: Colors.green),
-        //     Container(width: 50, height: 50, color: Colors.pink),
-        //   ],
-        // )
-      Row(
-        children: [
-          Container(width: 100, height: 100, color: Colors.red),
-          Spacer(flex: 70,), // %70
-          Container(width: 50, height: 50, color: Colors.green),
-          Spacer(flex: 30,), // %30
-          Container(width: 50, height: 50, color: Colors.pink),
-        ],
+        Row(
+          children: [
+            Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(width: 100, height: 100, color: Colors.red),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(
+                left: 30,
+                bottom: 20,
+                top: 20,
+                right: 5
+              ),
+              child: Container(width: 100, height: 100, color: Colors.green),
+            ),
+            Container(width: 50, height: 50, color: Colors.blue),
+            Container(width: 50, height: 50, color: Colors.pink),
+          ],
       )
     );
   }
