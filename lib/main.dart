@@ -37,17 +37,53 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       /**
+       * LayoutBuilder: Ekranlara özgü tasarım yapmamıza olanak sağlar
        * */
       body:
-        Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Image.asset("resimler/aslan.jpg"),
-              Text("ASLAN")
-            ],
-          ),
-        )
+        LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints){
+              if(constraints.maxWidth < 600) /// Ekran genişliği 600'den küçük ise
+                {
+                  ///Telefon Tasarımı
+                  return TelefonTasarimi();
+                }
+              else
+                {
+                  ///Tablet Tasarımı
+                  return TabletTasarimi();
+                }
+            }
+        ),
       );
+  }
+}
+
+class TabletTasarimi extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset("resimler/aslan.jpg", width: 300),
+          Text("Tabletteki aslan")
+        ],
+      ),
+    );
+  }
+}
+
+class TelefonTasarimi extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset("resimler/aslan.jpg", width: 200),
+          Text("Telefondaki aslan")
+        ],
+      ),
+    );
   }
 }
