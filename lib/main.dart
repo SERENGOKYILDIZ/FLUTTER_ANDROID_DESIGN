@@ -43,49 +43,11 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              MaviKare(),
-              Yazi("Hello World", 30),
-              KirmiziKare()
+              Image.asset("resimler/aslan.jpg"),
+              Text("ASLAN")
             ],
           ),
         )
       );
-  }
-}
-
-class MaviKare extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 100,
-      height: 100,
-      color: Colors.blue,
-    );
-  }
-}
-
-class KirmiziKare extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 100,
-      height: 100,
-      color: Colors.red,
-    );
-  }
-}
-
-class Yazi extends StatelessWidget{
-  String metin;
-  double yaziBoyutu;
-
-  Yazi(this.metin, this.yaziBoyutu);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      metin,
-      style: TextStyle(fontSize: yaziBoyutu),
-    );
   }
 }
