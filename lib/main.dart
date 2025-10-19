@@ -37,14 +37,21 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body:
-        Center( /////-> Ortalamaya yarar.
-          child: Column( /// child: tek bir eleman için kullanılır
-            children: [ /// children: birden fazla eleman için kullanılır.
-              Text("Hello World"),
-              Container(width: 100, height: 100, color: Colors.red),
-              Container(width: 100, height: 100, color: Colors.blue)
-            ],
-          ),
+          /*
+          NOT: Row'da kullanlan bu ve benzeri kodlar column'da da çalışır.
+      */
+        Row(
+          //mainAxisAlignment: MainAxisAlignment.center,          //-> Ortalar
+          //mainAxisAlignment: MainAxisAlignment.start,           //-> Varsayılan
+          //mainAxisAlignment: MainAxisAlignment.end,             //-> Sondan yerleştirir
+          //mainAxisAlignment: MainAxisAlignment.spaceBetween,    //-> Boşluklu yerleştirir
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,    //-> Boşluklu ama başta ve sonda da boşluklu yerleştirir
+          children: [
+            Container(width: 100, height: 100, color: Colors.red),
+            Container(width: 80, height: 80, color: Colors.blue),
+            Container(width: 50, height: 50, color: Colors.green),
+            Container(width: 30, height: 30, color: Colors.yellow),
+          ],
         )
     );
   }
