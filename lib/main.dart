@@ -37,28 +37,26 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       /**
-       * NOT: Align ile 9 seçenekli, kutupsal sıralama yapılabilir.
-       * NOT: Eğer row wrap content ise o zaman oda sağ-sol atanabilir. Değilse
-       * max olduğu için sağ-sol atanamaz.
+       * SizedBox: Yeniden boyutlandırmaya yarar. Ayrıca boşluk oluşturmak
+       * içinde kullanılır.
        * */
       body:
-        Align(
-          // alignment: Alignment.centerLeft,
-          alignment: Alignment.center,
-          child: Row(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                width: 200,
-                height: 200, 
-                color: Colors.red,
-                child: Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Text("Hello World"),
-                ),)
-            ],
-          ),
+        Row(
+          children: [
+            Container(width: 100, height: 100, color: Colors.red),
+            // Container(width: 80, height: 80, color: Colors.blue),
+            SizedBox(
+              width: 100,
+              height: 200,
+              child: Container(width: 80, height: 80, color: Colors.blue)
+            ),
+            Container(width: 50, height: 50, color: Colors.green),
+            SizedBox(
+                width: 50,
+                height: 50,
+            ),
+            Container(width: 50, height: 50, color: Colors.pink),
+          ],
         )
     );
   }
