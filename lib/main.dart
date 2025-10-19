@@ -37,21 +37,20 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body:
-          /*
-          NOT: Row'da kullanlan bu ve benzeri kodlar column'da da çalışır.
-
-          MainAxisSize.max = match parent
-          MainAxisSize.min = wrap content
-      */
-        Row(
-          // mainAxisSize: MainAxisSize.min,              //-> Gerekli kadar alan kaplar
-          mainAxisSize: MainAxisSize.max,              //-> Alabildiği satırı/sütunu alanı kaplar (Varsayılan)
-          children: [
-            Container(width: 100, height: 100, color: Colors.red),
-            Container(width: 80, height: 80, color: Colors.blue),
-            Container(width: 50, height: 50, color: Colors.green),
-            Container(width: 30, height: 30, color: Colors.yellow),
-          ],
+        Center( ///-> Bu ise sütun boyunca ortalar
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center, ///->Bu satır boyunca ortalar
+            children: [
+              Container(
+                width: 200,
+                height: 200,
+                color: Colors.red,
+                child: Center( ///-> Container'a child atanır, Center eklenir ve oraya istediğimiz bir wigdet'i ortalayarak ekleyebiliriz.
+                  child: Text("Hello World"),
+                ),
+              ),
+            ],
+          ),
         )
     );
   }
