@@ -37,27 +37,26 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       /**
-       * SizedBox: Yeniden boyutlandırmaya yarar. Ayrıca boşluk oluşturmak
-       * içinde kullanılır.
+       * Spacer: Geri kalan alanı boşluk ile doldurur. Yuzdelik olarak bolunebilir
        * */
       body:
-        Row(
-          children: [
-            Container(width: 100, height: 100, color: Colors.red),
-            // Container(width: 80, height: 80, color: Colors.blue),
-            SizedBox(
-              width: 100,
-              height: 200,
-              child: Container(width: 80, height: 80, color: Colors.blue)
-            ),
-            Container(width: 50, height: 50, color: Colors.green),
-            SizedBox(
-                width: 50,
-                height: 50,
-            ),
-            Container(width: 50, height: 50, color: Colors.pink),
-          ],
-        )
+        // Row(
+        //   children: [
+        //     Container(width: 100, height: 100, color: Colors.red),
+        //     Spacer(),
+        //     Container(width: 50, height: 50, color: Colors.green),
+        //     Container(width: 50, height: 50, color: Colors.pink),
+        //   ],
+        // )
+      Row(
+        children: [
+          Container(width: 100, height: 100, color: Colors.red),
+          Spacer(flex: 70,), // %70
+          Container(width: 50, height: 50, color: Colors.green),
+          Spacer(flex: 30,), // %30
+          Container(width: 50, height: 50, color: Colors.pink),
+        ],
+      )
     );
   }
 }
