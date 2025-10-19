@@ -37,27 +37,14 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body:
-        Row(
-          children: [
-            Container(  //////-> Kutu görseli ekler
-              width: 100,                             //-> Genişlik
-              height: 100,                            //-> Yükseklik
-              //color:Colors.red,                       //-> Renk (Border varken onun içerisinde tanımla)
-              child: Text("Hello my friend"),         //-> İçerisine eklenen eleman
-              //margin: const EdgeInsets.all(10.0),     //-> Çevresine boşluk ekler
-              margin: const EdgeInsets.only(top:10, bottom: 20, left: 50, right: 100), //-> Çevresine boşluk ekler. 4 tarafa ayrı ayrı
-
-              decoration: BoxDecoration( //-> İçerisine kenar ekler
-                color: Colors.red,
-                border: Border.all(
-                  color: Colors.yellow,
-                  width: 3.0
-                ),
-                borderRadius: BorderRadius.all(Radius.circular(10.0)) //-> Çerçevere ovallik ekler
-              ),
-
-            ),
-          ],
+        Center( /////-> Ortalamaya yarar.
+          child: Column( /// child: tek bir eleman için kullanılır
+            children: [ /// children: birden fazla eleman için kullanılır.
+              Text("Hello World"),
+              Container(width: 100, height: 100, color: Colors.red),
+              Container(width: 100, height: 100, color: Colors.blue)
+            ],
+          ),
         )
     );
   }
