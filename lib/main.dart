@@ -37,30 +37,55 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       /**
-       * Padding: Widget etrafına boşluk oluşturmak için kullanılır
-       *
-       * NOT: all ile 4 tarafa aynı, only ile tek tek atanabilir.
        * */
       body:
-        Row(
-          children: [
-            Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Container(width: 100, height: 100, color: Colors.red),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(
-                left: 30,
-                bottom: 20,
-                top: 20,
-                right: 5
-              ),
-              child: Container(width: 100, height: 100, color: Colors.green),
-            ),
-            Container(width: 50, height: 50, color: Colors.blue),
-            Container(width: 50, height: 50, color: Colors.pink),
-          ],
-      )
+        Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              MaviKare(),
+              Yazi("Hello World", 30),
+              KirmiziKare()
+            ],
+          ),
+        )
+      );
+  }
+}
+
+class MaviKare extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 100,
+      height: 100,
+      color: Colors.blue,
+    );
+  }
+}
+
+class KirmiziKare extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 100,
+      height: 100,
+      color: Colors.red,
+    );
+  }
+}
+
+class Yazi extends StatelessWidget{
+  String metin;
+  double yaziBoyutu;
+
+  Yazi(this.metin, this.yaziBoyutu);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      metin,
+      style: TextStyle(fontSize: yaziBoyutu),
     );
   }
 }
