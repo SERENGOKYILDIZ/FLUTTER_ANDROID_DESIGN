@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Tasarım Giriş'),
+      // home: const MyHomePage(title: 'Tasarım Giriş'),      //-> Bu eski olana yönlendiriyor
+      home: const AnaSayfa(),
     );
   }
 }
@@ -32,37 +33,42 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
 
-    /// Ekran oranını bulmak için ekledik
-    var ekranBilgisi = MediaQuery.of(context);
-    final double ekranYuksekligi = ekranBilgisi.size.height;
-    final double ekranGenisligi = ekranBilgisi.size.width;
-
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      /**
-       * ALT + ENTER: belirli bir widget'in üzerine bu kombinasyonu yaparsak
-       * pratik bir şekilde özellikler ekleyebiliriz.
-       * */
       body:
         Center(
-          child: Column(
-            children: [
-              Padding(
-                padding: EdgeInsets.only(top:ekranYuksekligi/100),
-                child: SizedBox(
-                    width: ekranGenisligi/2,
-                    height: ekranYuksekligi/5,
-                    child: Image.asset("resimler/aslan.jpg"),
-                ),
-              ),
-              Container(width: ekranGenisligi, height: ekranYuksekligi/4, color: Colors.blue),
-              Text("Hello World", style: TextStyle(fontSize: ekranGenisligi/10),)
-            ],
-          ),
         )
       );
+  }
+}
+
+
+
+/**
+ * NOT: stful yazıp tab yazarsak yeni bir sayfa tasarımı eklenir.
+ * NOT: Scaffold ile tasarım yapılır.
+ * */
+class AnaSayfa extends StatefulWidget {
+  const AnaSayfa({super.key});
+
+  @override
+  State<AnaSayfa> createState() => _AnaSayfaState();
+}
+
+class _AnaSayfaState extends State<AnaSayfa> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Başlık"),
+        backgroundColor: Colors.red,
+      ),
+      body: Center(
+
+      ),
+    );
   }
 }
